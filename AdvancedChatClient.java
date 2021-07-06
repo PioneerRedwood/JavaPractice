@@ -1,6 +1,9 @@
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Queue;
 
 public class AdvancedChatClient{
-    private Sodcket socket;
     private String username;
     private String hostname;
     private int port;
@@ -34,7 +37,6 @@ public class AdvancedChatClient{
                 threadStatus = readThread.isAlive() && writeThread.isAlive();
             } else {
                 System.out.println("Not connected");
-                System.out.println(readThread.isAlive() + " " + writeThread.isAlive());
                 threadStatus = false;
             }
         } catch(UnknownHostException e) {
@@ -42,6 +44,7 @@ public class AdvancedChatClient{
         } catch(IOException e){
             System.out.println("I/O error" + e.getMessage());
         }
+        System.out.println("Connection status\n 1) Reading Thread: " + readThread.isAlive() + "\n 2) Writing Thread: " + writeThread.isAlive());
         return threadStatus;
     }
 
@@ -55,6 +58,10 @@ public class AdvancedChatClient{
 
     public Queue<String> getWriteQueue(){
         return writeThread.getQueue();
+    }
+
+    public void addMsgWriteQueue(String msg){
+        writeThread.getQueue().add(msg);
     }
 
     public String getUsername(){

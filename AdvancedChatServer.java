@@ -1,10 +1,15 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AdvancedChatServer{
     private int port;
     private Set<String> userNames = new HashSet<>();
     private Set<UserThread> userThreads = new HashSet<UserThread>();
 
-    public AdvancedChatServer(){
+    public AdvancedChatServer(int port){
         this.port = port;
     }
 
@@ -31,7 +36,7 @@ public class AdvancedChatServer{
 
     public static void main(String args[]){
         if(args.length < 1){
-            System.out.println("Syntax error: there is no port number and args.\nExit\n");
+            System.out.println("Syntax error: there is no port number.\nExit\n");
             System.exit(0);
         }
 
@@ -63,18 +68,14 @@ public class AdvancedChatServer{
     }
 
     public void removeUser(String userName, UserThread user){
-        boolean removed = userNames.remove(user);
+        boolean removed = userNames.remove(userName);
         if(removed){
             userThreads.remove(user);
-            System.out.println("The user " + userName + " quiited.");
+            System.out.println(userName + " is quit.");
         }
     }
 
     public Set<String> getUserNames(){
         return this.userNames;
-    }
-
-    public boolean hasUsers(){
-        return !this.userNames.isEmpty();
     }
 }

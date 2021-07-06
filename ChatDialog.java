@@ -1,3 +1,15 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.Dimension;
+import java.awt.Container;
+import java.awt.Toolkit;
+import java.awt.Point;
+
 public class ChatDialog{
     private JFrame mainFrame;
     private JTextField nameField;
@@ -9,6 +21,8 @@ public class ChatDialog{
     private String username;
     private String hostname;
     private String port;
+
+    private ChatRoom room; 
 
     public ChatDialog(){
         this.username = "Redwood";
@@ -51,7 +65,7 @@ public class ChatDialog{
         portField = new JTextField(this.port);
         portField.setBounds(210, 210, 150, 50);
 
-        statusLabel = new JLabel(<html>To connect, fill the above context.<br>Basically, it fiiled some variables</html>);
+        statusLabel = new JLabel("<html>To connect, fill the above context.<br>Basically it filled some variables</html>");
         statusLabel.setBounds(10, 250, 400, 150);
 
         JButton button = new JButton();
@@ -68,13 +82,18 @@ public class ChatDialog{
         contentPane.add(nameLabel);
         contentPane.add(nameField);
 
-        contentPane.add(hostnameLabel);
+        contentPane.add(hostLabel);
         contentPane.add(hostnameField);
 
         contentPane.add(portLabel);
         contentPane.add(portField);
 
+        contentPane.add(statusLabel);
+
         contentPane.add(button);
+        
+
+
         mainFrame.setSize(400, 600);
     }
 
@@ -92,8 +111,13 @@ public class ChatDialog{
             return;
         }
 
-        ChatRoom room = new ChatRoom();
-        room.initClient(nameField.getText(), hostnameField.getText(), Integer.parseInt(portFiled.getText()));
+        if(room == null){
+            room = new ChatRoom();
+        } else {
+            return ;
+        }
+
+        room.initClient(nameField.getText(), hostnameField.getText(), Integer.parseInt(portField.getText()));
         room.init();
         if(room.show()){
             this.mainFrame.setVisible(false);
