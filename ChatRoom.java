@@ -187,6 +187,5 @@ public class ChatRoom{
 
     public void getUsersInServer(){
         client.addMsgWriteQueue("getUser");
-
     }
 }

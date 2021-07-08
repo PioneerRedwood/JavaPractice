@@ -137,5 +137,4 @@ public class ChatDialog{
         dialog.init();
         dialog.show();
     }
-
 }
