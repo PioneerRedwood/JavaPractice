@@ -36,3 +36,10 @@
 #### Process, Runtime, 응용 프로그램 실행 관련
     NetworkCrawler.java
     CommandStream.java
+
+#### wkhtmltopdf 라이브러리
+    ComparisonTest.java
+- wkhtmltopdf 웹 페이지를 이미지 혹은 pdf 파일로 변환하는 오픈소스 라이브러리
+* 해당 라이브러리를 실행하기 위해 process를 생성하고 
+* process에서 실행의 결과를 stream으로 받는 과정에서 스레드를 쓰는 것과 쓰지 않는 것을 비교했다.
+- 결과는 거의 차이 없음. 오히려 스레드를 안 쓴 쪽이 더 유리.
