@@ -1,15 +1,8 @@
 package NetworkCrawler;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.management.ManagementFactory;
-import java.lang.management.OperatingSystemMXBean;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Date;
 
 public class ComparisonTest {
@@ -58,6 +51,7 @@ public class ComparisonTest {
 
                 String msg = "";
                 String fileName = ".pdf";
+                // String resultLine = "";
 
                 int i = 0;
                 for(String link : links) {
@@ -72,12 +66,12 @@ public class ComparisonTest {
                         errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
     
                         while((msg = inputReader.readLine()) != null) {
-                            resultLine += msg + System.getProperty("line.sperator");
+                            // resultLine += msg + System.getProperty("line.sperator");
                             System.out.println(msg);
                         }
                         
                         while((msg = errorReader.readLine()) != null) {
-                            resultLine += msg + System.getProperty("line.sperator");
+                            // resultLine += msg + System.getProperty("line.sperator");
                             System.out.println(msg);
                         }
                         process.waitFor();
@@ -95,7 +89,7 @@ public class ComparisonTest {
         } else{
             Process process = null;
 
-            String msg = "";
+            // String msg = "";
             String fileName = ".pdf";
 
             System.out.println("Run with " + args);

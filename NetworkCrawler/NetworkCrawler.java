@@ -1,3 +1,5 @@
+package NetworkCrawler;
+
 import java.io.IOException;
 
 public class NetworkCrawler {
@@ -7,6 +9,7 @@ public class NetworkCrawler {
     // refered https://whirlpool.net.au/wiki/windows_nw_diag_cmds
     // 
     private final String[][] strss = {
+        // {"cmd", "/c", "chcp", "437"},
         {"netstat", "-sp", "tcp"},
         // {"start"},
         {"ipconfig"},
@@ -36,7 +39,7 @@ public class NetworkCrawler {
                     System.out.print(str + " ");
                 }
                 System.out.println("=> executing..\n");
-                process = runtime.exec(strs);                
+                process = runtime.exec(strs);
                 CommandStream cStream = new CommandStream(process);
                 cStream.work();
                 
