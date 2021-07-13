@@ -1,5 +1,5 @@
 <!-- import libraries -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@ page import="java.io.File" %>
 <%@ page import="java.io.IOException" %>
@@ -90,7 +90,50 @@
                     sb.append(msg);
                 }
                 inputReader.close();
-                errorReader.close();  
+                errorReader.close();
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(process != null) {
+                process.destroy();
+            }
+            result = sb.toString();
+            System.out.println("Execution finished..\n" + result);
+        }
+
+        return result;
+    }
+
+    public static ArrayList cmdExecToList(String[] cmd) {
+        Runtime runtime = Runtime.getRuntime();
+        Process process = null;
+        BufferedReader inputReader = null;
+        BufferedReader errorReader = null;
+
+        String msg = "";
+        String result = "";
+        ArrayList<String> resultList = new ArrayList<String>();
+
+        StringBuilder sb = new StringBuilder();
+        for(String str : cmd) {
+            sb.append(str + " ");
+        }
+        try {
+            process = runtime.exec(cmd);
+            if(process != null) {
+                inputReader = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName("UTF-8")));
+                errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream(), Charset.forName("UTF-8")));
+
+                while((msg = inputReader.readLine()) != null) {
+                    resultList.add(msg);
+                }
+    
+                while((msg = errorReader.readLine()) != null) {
+                    resultList.add(msg);
+                }
+                inputReader.close();
+                errorReader.close();
             }
         } catch(IOException e) {
             e.printStackTrace();
@@ -99,26 +142,10 @@
                 process.destroy();
             }
             
-            //byte[] tempBytes = result.getBytes();
-            //String str = new String(tempBytes, StandardCharsets.UTF_8);
-            
-            /*
-            ByteBuffer buf = StandardCharsets.UTF_8.encode(result);
-            String str = StandardCharsets.UTF_8.decode(buf).toString();
-
-            if(str.equals(result)){
-                result = str;
-            } else {
-                result = "trash";
-            }
-            */
-
-            result = sb.toString();
-
-            System.out.println("Execution finished..\n" + result);
+            System.out.println("Execution finished..\n");
         }
 
-        return result;
+        return resultList;
     }
 
 %>

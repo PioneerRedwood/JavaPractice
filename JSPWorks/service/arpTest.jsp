@@ -1,12 +1,24 @@
-package NetworkCrawler;
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+    pageEncoding="UTF-8" %>
+<%@ include file="../common/common.jsp" %>
+<%@ include file="../common/properties.jsp" %>
 
-import java.util.Arrays;
 
-public class JavaTestCode {
+<%
+    final String[][] strss = {
+        //{"cmd", "/c"},
+        {"netstat", "-sp", "tcp"},
+        //{"ipconfig"},
+        //{"tracert"},
+        //{"ping", "localhost"},
+        //{"route", "PRINT", "-4", "157*"},
+        //{"arp", "-a"},
+        //{"tasklist", "-v", "/fi", "\"sessionname eq console\""},
+    };
+    
+%>
 
-    public static String lineSperator = 
-            "\n========== ========== ========== ========== ========== ==========\n";
-
+<%!
     public static String getTrimmedLine(String origin, String offset) {
         String originStr = origin.trim();
         char[] chars = originStr.toCharArray();
@@ -72,12 +84,34 @@ public class JavaTestCode {
         return valueString;
     }
 
-    public static void main(String[] args) {
-        String cmdLine = "  120.12.19.17      00-00-00-00-00-00    HKPL:D  ".trim();
+%>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <p>processing..</p>
+
+    <% for(String[] str : strss) { %>
         
-        // System.out.println(getTrimmedLine(cmdLine));
-        for(String str : getTrimmedLine(cmdLine, "\t").split("\t")) {
-            System.out.println(str);
-        }
-    }
-}
+        <%
+            ArrayList<String> cmdResults = new ArrayList<String>();
+
+            cmdResults = cmdExecToList(strss[0]);
+        
+            String allResultStr = "";
+
+            for(int i = 0; i < cmdResults.size(); ++i) {
+                allResultStr += getTrimmedLine(cmdResults.get(i), "\t") + "<br>";
+            }
+        %>
+        <%= allResultStr %>
+        <br>
+    <% } %>
+
+</body>
+
+</html>

@@ -1,7 +1,12 @@
 package NetworkCrawler;
 
 import java.io.IOException;
-
+/**
+ * Network system info crwaling class using basic network command.
+ * Making a process to execute command in Runtime and displaying at a console.
+ * 
+ * 
+ */
 public class NetworkCrawler {
     private Process process = null;
     private Runtime runtime = null;
