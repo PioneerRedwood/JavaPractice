@@ -5,7 +5,14 @@
 <%@ page import="java.io.IOException" %>
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.InputStreamReader" %>
+<%@ page import="java.io.FileWriter" %>
 
+<%@ page import="java.nio.file.Files" %>
+<%@ page import="java.nio.file.Path" %>
+<%@ page import="java.nio.file.Paths" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
@@ -148,4 +155,49 @@
         return resultList;
     }
 
+
+    public static void log(boolean fileLog, boolean consoleLog, String logStr) {
+        Date now = new Date();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss");
+
+        String dateStr = date.format(now) + " " + time.format(now);
+
+        if(fileLog) {
+            Path logPath = Paths.get("C:\\Temp\\JSPWorks\\Log\\");
+            String logPathStr = logPath.toAbsolutePath().toString() + "\\";
+
+            if(Files.exists(logPath)) {
+                System.out.println(logPathStr + date.format(now) + " LOG.text");
+                File file = new File(logPathStr + date.format(now) + " LOG.text");
+                
+                try{
+                    FileWriter writer = new FileWriter(file, true);
+                    writer.write(dateStr + " LOG " + logStr + "\r\n");
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                File file = new File(logPath.toAbsolutePath().toString());
+                try{
+                    Files.createDirectory(file.toPath());
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+                /* 
+                boolean isMade = file.mkdir();
+                if(isMade) {
+                    System.out.println("mkdir success");
+                } else {
+                    System.out.println("mkdir failed");
+                }
+                */
+            }
+        }
+
+        if(consoleLog) {
+            System.out.println(dateStr + " " + logStr);
+        }
+    }
 %>

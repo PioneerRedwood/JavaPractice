@@ -29,3 +29,9 @@
 
 ##### The next one .. will be soon.
 ##### Edition plus project will be uploaded
+
+
+## #4 File system
+##### Simple Logger
+- Log file creation, Directory setting (specified directory must be real)
+- 
