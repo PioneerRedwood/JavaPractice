@@ -17,9 +17,8 @@
 
 ###### panzoom test
 - css 확대 기능을 제공하는 오픈소스인 [panzoom](https://github.com/timmywil/panzoom/)
-사진
 
-<img src="https://user-images.githubusercontent.com/45554623/128125786-3259a6a1-1287-4f7b-9ec6-f61508ef9507.jpg">
+<img src="https://user-images.githubusercontent.com/45554623/128125999-8163a264-6c45-4005-aa3a-4f8c3d558b39.png">
 
 
 #### static 폴더
