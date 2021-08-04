@@ -18,13 +18,22 @@
 
 사용 방법
 JavaTestCode.java main class 안에 다음 코드 추가
-''' C
-    NetworkCrawler crawler = new NetworkCrawler();
-    crawler.crawl();
-'''
+
+```java
+NetworkCrawler crawler = new NetworkCrawler();
+crawler.crawl();
+
+
+```
+
 다음 명령어 실행
-    cd JavaPractice
-    javac NetworkCrawler\JavaTestCode.java
-    java NetworkCrawler.JavaTestCode
+
+```
+cd JavaPractice
+javac NetworkCrawler\JavaTestCode.java
+java NetworkCrawler.JavaTestCode
+
+
+```
 
 [사진은 보안 관계로 넣지 않음]
