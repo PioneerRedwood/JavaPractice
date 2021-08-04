@@ -15,7 +15,7 @@
   - html 파일 자체 인코딩 형식 UTF-8로 변경 => 실패
   - 문제는 명령어를 실행시키고 결과를 InputStream으로 읽어온 후 화면에 출력한 내용을 가져오는 형식 자체가 한글이 깨지는 형식인 듯함 => 해결 방법 찾지 못함
 
-###### panzoom test
+##### panzoom test
 - css 확대 기능을 제공하는 오픈소스인 [panzoom](https://github.com/timmywil/panzoom/)
 
 <img src="https://user-images.githubusercontent.com/45554623/128125999-8163a264-6c45-4005-aa3a-4f8c3d558b39.png">
