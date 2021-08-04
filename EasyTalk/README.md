@@ -20,5 +20,13 @@
 
 - 하드 코딩 위주다보니 유지보수 측면에서는 적절하지 않아보임
 
+#### 실행 사진
 
+채팅 서버 실행 화면 콘솔 (포트 9000)
+<img src="https://user-images.githubusercontent.com/45554623/128123966-0f30b115-0e22-40fc-bc70-6e301cbe4832.png">
 
+채팅 클라이언트(다이얼로그) 실행 화면
+<img src="https://user-images.githubusercontent.com/45554623/128123968-1ba2a2af-e87b-4b7c-b817-6b2dbf64bfbd.png">
+
+채팅 전체적인 사진
+<img src="https://user-images.githubusercontent.com/45554623/128123969-cde02d0a-7d22-470f-bb61-7c87348251b8.png">

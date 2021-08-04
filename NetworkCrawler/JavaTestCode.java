@@ -6,7 +6,8 @@ public class JavaTestCode {
             "\n========== ========== ========== ========== ========== ==========\n";
 
     public static void main(String[] args) {
-        
+        NetworkCrawler crawler = new NetworkCrawler();
+        crawler.crawl();
         
     }
 }

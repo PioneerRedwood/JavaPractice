@@ -16,3 +16,15 @@
 - 응용 프로그램을 일련으로 실행시키면서 테스트한 작업 파일 저장
 - 별도의 README.MD가 있음
 
+사용 방법
+JavaTestCode.java main class 안에 다음 코드 추가
+''' C
+    NetworkCrawler crawler = new NetworkCrawler();
+    crawler.crawl();
+'''
+다음 명령어 실행
+    cd JavaPractice
+    javac NetworkCrawler\JavaTestCode.java
+    java NetworkCrawler.JavaTestCode
+
+[사진은 보안 관계로 넣지 않음]

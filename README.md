@@ -1,8 +1,9 @@
 # JavaPractice
-2021.07.06 - 2021.07.NOW
+2021.07.06 - NOW
 
 ​	Java practice in NICE, What I want to do with other languages(C++, Python).
 
+실행 시 별도의 IDE는 없어서 CMD에서 javac 명령어를 통해 일일이 java 파일을 컴파일하고 실행하는 방식
 
 
 ## #1 EasyTalk
