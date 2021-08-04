@@ -1,4 +1,4 @@
-package CodeTest;
+package NetworkCrawler.CodeTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;

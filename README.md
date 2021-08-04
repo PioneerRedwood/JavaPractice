@@ -27,11 +27,10 @@
 
 ## #3 JSP & Webapp
 
-##### The next one .. will be soon.
-##### Edition plus project will be uploaded
-
+##### Simple Apache & JSP 
+- Sub process executing network commands in Web
+- Print result on HTML -- FAIL..
 
 ## #4 File system
 ##### Simple Logger
 - Log file creation, Directory setting (specified directory must be real)
-- 
