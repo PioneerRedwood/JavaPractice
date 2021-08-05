@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch JavaTestCode",
+            "request": "launch",
+            "mainClass": "NetworkCrawler.JavaTestCode",
+            "projectName": "JavaPractice_eee2847e"
+        },
+        {
+            "type": "java",
             "name": "Launch CodeTest",
             "request": "launch",
             "mainClass": "CodeTest.Common",

@@ -40,3 +40,8 @@
 ## 8th commit contents 2021-08-04
 - 일부 폴더 및 파일 리팩토링, 각 프로젝트 별 README.MD 추가 및 수정
 - 예정 진행 사항 - Spring Framework를 이용한 REST API 서버 구축
+
+
+## #5 Springboot Web
+### Spring Initializer with build.gradle
+- vscode 내 Spring Initializer & Gradle 기반 웹 서비스 테스트

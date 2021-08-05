@@ -2,9 +2,9 @@ package NetworkCrawler;
 
 import java.io.IOException;
 /**
+ * 
  * Network system info crwaling class using basic network command.
  * Making a process to execute command in Runtime and displaying at a console.
- * 
  * 
  */
 public class NetworkCrawler {
@@ -12,7 +12,6 @@ public class NetworkCrawler {
     private Runtime runtime = null;
     
     // refered https://whirlpool.net.au/wiki/windows_nw_diag_cmds
-    // 
     private final String[][] strss = {
         // {"cmd", "/c", "chcp", "437"},
         {"netstat", "-sp", "tcp"},
