@@ -37,3 +37,12 @@ java NetworkCrawler.JavaTestCode
 ```
 
 [사진은 보안 관계로 넣지 않음]
+
+#### (알림) 실행환경의 차이로 인한 작동 미흡한 부분
+윈도우 내장된 명령어를 사용한 것이므로 리눅스에서 일부 명령어는 작동하지 않음
+별도의 라이브러리를 설치해야 함 
+Ubuntu 기준 
+
+```
+$ sudo apt install net-tools
+```
