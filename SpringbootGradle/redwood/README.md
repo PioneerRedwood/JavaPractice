@@ -18,7 +18,7 @@
 			for(String beanName : beanNames) {
 				System.out.println(beanName);
 			}
-		};
+		};g
 	}
 ```
 
@@ -48,4 +48,6 @@ mysql > grant all on 'DB이름'.* to '유저이름'@'%';              -- 모든 
 ```
 
 #### application.properties mysql 정보 넣어주기
-- 진행 중 21-08-05
+- mysql 설치와 계정 관리를 지속하다 Spring을 원격 vscode에서 하는데 무리를 느낌
+- 엎친데 덮친격으로 ./gradlew build, bootRun 등의 명령어가 먹히지 않아 개발 멈춤
+- [server_basic(with node.js)](https://github.com/PioneerRedwood/nodejs-server) & [JavaPractice.FakeClient](https://github.com/PioneerRedwood/JavaPractice/tree/main/FakeClient) 리포지토리로 이동
