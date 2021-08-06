@@ -51,3 +51,21 @@ mysql > grant all on 'DB이름'.* to '유저이름'@'%';              -- 모든 
 - mysql 설치와 계정 관리를 지속하다 Spring을 원격 vscode에서 하는데 무리를 느낌
 - 엎친데 덮친격으로 ./gradlew build, bootRun 등의 명령어가 먹히지 않아 개발 멈춤
 - [server_basic(with node.js)](https://github.com/PioneerRedwood/nodejs-server) & [JavaPractice.FakeClient](https://github.com/PioneerRedwood/JavaPractice/tree/main/FakeClient) 리포지토리로 이동
+
+- MySql 다룬 부분
+```
+@기본
+sudo apt-get install mysql-server 설치
+sudo apt-get purge mysql-server 삭제
+sudo rm -f -r /var/lib/mysql 관련 디렉토리 강제 삭제
+
+@DB 생성
+
+@사용자 생성
+sudo service mysql restart 재시작
+sudo mysql -u root 루트로 접속
+mysql> use mysql; mysql 스키마 사용
+mysql> create user 'redwood'@'localhost' identified by '1234'; 아이디 생성
+mysql> grant all privileges on *.* to 'redwood'@'localhost'; 모든 DB 권한 부여
+mysql> drop user 'redwood'@'localhost'; 사용자 삭제
+```
