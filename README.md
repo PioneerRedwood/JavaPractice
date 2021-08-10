@@ -32,9 +32,12 @@
 - Sub process executing network commands in Web
 - Print result on HTML -- FAIL..
 
+
+
 ## #4 File system
 ##### Simple Logger
 - Log file creation, Directory setting (specified directory must be real)
+
 
 
 ## 8th commit contents 2021-08-04
@@ -42,7 +45,9 @@
 - 예정 진행 사항 - Spring Framework를 이용한 REST API 서버 구축
 
 
+
 ## #5 Springboot Web
 ### Spring Initializer with build.gradle
 - vscode 내 Spring Initializer & Gradle 기반 웹 서비스 테스트
 - vscode를 원격으로 Spring 환경을 구축하는 부분이 사소한 문제가 많아 잠정 중단(2021-08-06)
+
