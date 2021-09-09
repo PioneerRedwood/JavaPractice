@@ -3,10 +3,13 @@ package com;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.Socket;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
@@ -17,7 +20,6 @@ import java.util.Map;
 public class Util 
 {
     // Get local server IP
-    // @return; 
     public static String getLocalServerIP() throws Throwable
     {
         String result = null;
@@ -165,27 +167,50 @@ public class Util
         }
     }
 
-    //// -> Just wirte Signiture of method -> ////
-    // When you need, implement yourself
-
     public static String getStringStackTraceException(Exception e)
     {
-        return "";
+        String result = "";
+
+        StringWriter errors = new StringWriter();
+        e.printStackTrace(new PrintWriter(errors));
+        result = errors.toString();
+        return result;
     }
 
     public static String getStringStackTraceThrowable(Throwable t)
     {
-        return "";
+        String result = "";
+
+        StringWriter errors = new StringWriter();
+        t.printStackTrace(new PrintWriter(errors));
+        result = errors.toString();
+        return result;
     }
 
+    // never used // deprecated?
     public static String checkedParam(Map<String, String> map, String param)
     {
         return "";
     }
 
+    // for debugging?
     public static void printMap(Map<String, String> requestMap, Map<String, String> responseMap)
     {
-        
+        Iterator<String> requestMapIter = requestMap.keySet().iterator();
+        while(requestMapIter.hasNext())
+        {
+            String key = (String) requestMapIter.next();
+            System.out.println("[Request] " + key + " = " + requestMap.get(key));
+        }
+        System.out.println("[Request end]\n");
+
+        Iterator<String> responseMapIter = responseMap.keySet().iterator();
+        while(responseMapIter.hasNext())
+        {
+            String key = (String) responseMapIter.next();
+            System.out.println("[Response] " + key + " = " + responseMap.get(key));
+        }
+        System.out.println("[Response end]\n");
     }
 
     public static String isNullToString(Object object)
@@ -193,9 +218,31 @@ public class Util
         return "";
     }
 
+    // POST Http 
     public static void sendPostContainer(LinkedHashMap<String, String> map) throws UnsupportedEncodingException
     {
+        String sendData = "";
 
+        Iterator<String> iterator = map.keySet().iterator();
+        while(iterator.hasNext())
+        {
+            String key = (String) iterator.next();
+
+            if(sendData.equals(""))
+            {
+                sendData = key + "=" + URLEncoder.encode(map.get(key), "EUC-KR");
+            }
+            else
+            {
+                sendData += "&" + key + "=" + URLEncoder.encode(map.get(key), "EUC-KR");
+            }
+        }
+
+        try {
+            RedHttpClient.sendUrlPost("http://" +Common.WEB_SERVER_IP+"/corp/app.php", sendData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //// -> -> ////

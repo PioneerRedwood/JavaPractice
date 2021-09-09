@@ -5,12 +5,14 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.net.Socket;
 import java.text.DecimalFormat;
+import java.util.Base64;
+import java.util.Base64.Encoder;
 
 public class Writer 
 {
     public void write(
         Socket socket, BufferedReader br, ByteArrayOutputStream baos, BufferedOutputStream bos,
-        int[] byteSize, String strIdx) throws Throwable
+        int[] byteSize, String numIdx) throws Throwable
     {
         int[] byteNum = new int[byteSize.length];
 
@@ -31,7 +33,7 @@ public class Writer
                 byte[] saveBytes = new byte[byteNum[idx]];
 
                 // split by delimeter(|) and check the number of property 
-                if(strIdx.contains("|" + String.valueOf(idx) + "|"))
+                if(numIdx.contains("|" + String.valueOf(idx) + "|"))
                 {
                     Util.setDataNum(saveBytes, value);
                 }
@@ -52,7 +54,9 @@ public class Writer
         Common.logger.info("[Send decode data] {" + new String(baos.toByteArray(), "EUC-KR") + "}");
 
         // using TXEncoder.encode(encData);
-        byte[] tempData = null; // for now null // must be fixed
+        Encoder encoder = Base64.getEncoder();
+        byte[] tempData = encoder.encode(baos.toByteArray());
+        
         DecimalFormat df = new DecimalFormat("0000000000");
         String encLength = df.format(tempData.length);
 

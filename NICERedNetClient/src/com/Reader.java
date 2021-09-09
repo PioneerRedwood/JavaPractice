@@ -5,8 +5,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Base64.Decoder;
 
 public class Reader 
 {
@@ -75,9 +77,9 @@ public class Reader
             Common.logger.info("[Recv encoded data] {" + new String(headerBytes, "EUC-KR") + new String(encBytes, "EUC-KR") + "}");
             
             // using TXEncoder.decode(encData);
-            // byte[] decData = Decoder.decode(encData);
+            Decoder decoder = Base64.getDecoder();
+            byte[] decData = decoder.decode(encData);
 
-            byte[] decData = null; // for now null // must be fixed
             bais = new ByteArrayInputStream(decData);
             dis = new DataInputStream(bais);
 
