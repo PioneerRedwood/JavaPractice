@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Temp\\COMPANY_WORKSPACE\\jars\\apache-log4j-2.14.1-bin\\log4j-api-2.14.1.jar",
+        "c:\\Temp\\COMPANY_WORKSPACE\\jars\\apache-log4j-2.14.1-bin\\log4j-core-2.14.1.jar",
+        "c:\\Temp\\COMPANY_WORKSPACE\\jars\\apache-log4j-2.14.1-bin\\log4jdbc-log4j2-jdbc4.1-1.16.jar",
+        "c:\\Temp\\COMPANY_WORKSPACE\\jars\\commons-io-2.11.0\\commons-io-2.11.0.jar"
+    ]
+}
